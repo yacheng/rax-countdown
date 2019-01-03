@@ -1,0 +1,47 @@
+{
+  "name": "rax-countdown",
+  "version": "0.7.0",
+  "description": "Countdown component for Rax.",
+  "license": "BSD-3-Clause",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "rax-scripts start",
+    "build": "rax-scripts build",
+    "lint": "eslint --ext .js --ext .jsx ./src"
+  },
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raxjs/rax-countdown.git"
+  },
+  "keywords": [
+    "Rax",
+    "rax-component",
+    "react-component"
+  ],
+  "bugs": {
+    "url": "https://github.com/alibaba/rax/issues"
+  },
+  "homepage": "https://github.com/alibaba/rax#readme",
+  "engines": {
+    "npm": ">=3.0.0"
+  },
+  "dependencies": {
+    "rax-image": "^0.6.5",
+    "rax-text": "^0.6.5",
+    "rax-view": "^0.6.5"
+  },
+  "peerDependencies": {
+    "rax": "0.x"
+  },
+  "devDependencies": {
+    "rax-test-renderer": "^0.6.5",
+    "rax-scripts": "^1.0.0-beta.2",
+    "babel-eslint": "^8.2.2",
+    "eslint": "^4.18.1",
+    "eslint-plugin-react": "^7.7.0"
+  }
+}
