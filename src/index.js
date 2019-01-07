@@ -2,6 +2,7 @@ import {createElement, Component, PropTypes} from 'rax';
 import Text from 'rax-text';
 import View from 'rax-view';
 import Image from 'rax-image';
+import './index.css';
 
 function isFunction(functionToCheck) {
   return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
@@ -11,10 +12,10 @@ function addZero(num, timeWrapStyle, timeBackground, timeBackgroundStyle, timeSt
   const displayNum = num < 0 ? 0 : num;
   const displayFirstNum = displayNum < 10 ? 0 : displayNum.toString().slice(0, 1);
   const displaySecondNum = displayNum < 10 ? displayNum : displayNum.toString().slice(1);
-  return <View style={[timeWrapStyle, styles.item]}>
+  return <View className="item" style={timeWrapStyle}>
     {
       timeBackground ?
-        <Image source={timeBackground} style={timeBackgroundStyle} /> :
+        <Image className="background" source={timeBackground} style={timeBackgroundStyle} /> :
         null
     }
     <Text style={timeStyle}>
@@ -136,9 +137,6 @@ class Index extends Component {
     let minutes = parseInt(totalSeconds / 60) % 60;
     let seconds = parseInt(totalSeconds % 60);
 
-
-    const _timeBackgroundStyle = [styles.background, timeBackgroundStyle];
-
     const timeType = {
       'd': days,
       'h': hours,
@@ -157,7 +155,7 @@ class Index extends Component {
     }
     let lastPlaintextIndex = 0;
 
-    return <View style={styles.main}>
+    return <View className="main">
       {
         matchlist.map((val, index) => {
           if (val === -1) {// don't forget the potential plain text after last matched item
@@ -183,7 +181,7 @@ class Index extends Component {
                 );
               } else {// replace current matched item to realtime string
                 lastPlaintextIndex = val + 3;
-                return addZero(timeType[matchedCharacter], timeWrapStyle, timeBackground, _timeBackgroundStyle, timeStyle, secondStyle);
+                return addZero(timeType[matchedCharacter], timeWrapStyle, timeBackground, timeBackgroundStyle, timeStyle, secondStyle);
               }
             default:
               return null;
@@ -194,18 +192,5 @@ class Index extends Component {
   }
 }
 
-const styles = {
-  main: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center'
-  },
-  item: {
-    flexDirection: 'row'
-  },
-  background: {
-    position: 'absolute'
-  }
-};
 
 export default Index;
