@@ -1,6 +1,5 @@
 import {createElement, useState, useEffect, useMemo} from 'rax';
 import PropTypes from 'rax-proptypes';
-
 import Text from 'rax-text';
 import View from 'rax-view';
 import Image from 'rax-image';
