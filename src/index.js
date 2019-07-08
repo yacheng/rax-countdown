@@ -1,8 +1,9 @@
-import {createElement, Component, PropTypes} from 'rax';
+import {createElement, Component} from 'rax';
+import PropTypes from 'rax-proptypes';
 import Text from 'rax-text';
 import View from 'rax-view';
 import Image from 'rax-image';
-import './index.css';
+import styles from './index.css';
 
 function isFunction(functionToCheck) {
   return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
@@ -12,10 +13,10 @@ function addZero(num, timeWrapStyle, timeBackground, timeBackgroundStyle, timeSt
   const displayNum = num < 0 ? 0 : num;
   const displayFirstNum = displayNum < 10 ? 0 : displayNum.toString().slice(0, 1);
   const displaySecondNum = displayNum < 10 ? displayNum : displayNum.toString().slice(1);
-  return <View className="item" style={timeWrapStyle}>
+  return <View className="item" style={{...styles.item, ...timeWrapStyle}}>
     {
       timeBackground ?
-        <Image className="background" source={timeBackground} style={timeBackgroundStyle} /> :
+        <Image className="background" source={timeBackground} style={{...styles.background, ...timeBackgroundStyle}} /> :
         null
     }
     <Text style={timeStyle}>
@@ -155,7 +156,7 @@ class Index extends Component {
     }
     let lastPlaintextIndex = 0;
 
-    return <View className="main">
+    return <View className="main" style={styles.main}>
       {
         matchlist.map((val, index) => {
           if (val === -1) {// don't forget the potential plain text after last matched item
