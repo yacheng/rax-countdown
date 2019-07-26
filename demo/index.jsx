@@ -39,10 +39,12 @@ class App extends Component {
             timeStyle={{
               color: '#ffffff',
               fontSize: 40,
+              position: 'relative'
             }}
             secondStyle={{
               color: '#ffffff',
               fontSize: 40,
+              position: 'relative'
             }}
             timeWrapStyle={{
               borderRadius: 6,
@@ -50,7 +52,30 @@ class App extends Component {
               height: 60,
               backgroundColor: '#333333',
             }}
-           />
+          />
+        </View>
+        <View style={styles.container}>
+          <Countdown
+            timeRemaining={500000}
+            tpl="{h}:{m}:{s}"
+            timeStyle={{
+              color: '#ffffff',
+              fontSize: 40,
+              position: 'relative'
+            }}
+            secondStyle={{
+              color: '#ffffff',
+              fontSize: 40,
+              position: 'relative'
+            }}
+            timeBackground={{
+              uri: 'https://gw.alicdn.com/tfs/TB1g6AvPVXXXXa7XpXXXXXXXXXX-215-215.png'
+            }}
+            timeBackgroundStyle={{
+              width: 50,
+              height: 80
+            }}
+          />
         </View>
       </View>
     );
