@@ -1,5 +1,5 @@
 let count = 0;
-const DEFAULT_TPL = "{d}天{h}时{m}分{s}秒";
+const DEFAULT_TPL = '{d}天{h}时{m}分{s}秒';
 
 Component({
   data: {
@@ -7,17 +7,17 @@ Component({
   props: {
     timeRemaining: 0,
     interval: 1000,
-    timeWrapStyle: "",
-    textStyle: "",
-    timeStyle: "",
-    secondStyle: "",
-    tpl: "{d}天{h}时{m}分{s}秒",
+    timeWrapStyle: '',
+    textStyle: '',
+    timeStyle: '',
+    secondStyle: '',
+    tpl: '{d}天{h}时{m}分{s}秒',
     onFormatFunc: null,
     onTick: null,
     onComplete: null
   },
   didMount: function didMount() {
-    const funcToExecute = (this.props.onFormatFunc && typeof this.props.onFormatFunc === 'function') 
+    const funcToExecute = this.props.onFormatFunc && typeof this.props.onFormatFunc === 'function'
       ? this.props.onFormatFunc : this.msToTime;
     this.funcToExecute = funcToExecute.bind(this);
 
@@ -33,16 +33,16 @@ Component({
       if (!timeDuration || timeDuration <= 0) {
         if (this.counter) clearInterval(this.counter);
       }
-  
-      var seconds = parseInt((timeDuration / 1000) % 60)
-        , minutes = parseInt((timeDuration / (1000 * 60)) % 60)
-        , hours = parseInt((timeDuration / (1000 * 60 * 60)) % 24)
-        , days = parseInt(timeDuration / (1000 * 60 * 60 * 24));
-    
-      days = (days < 10) ? "0" + days : days;
-      hours = (hours < 10) ? "0" + hours : hours;
-      minutes = (minutes < 10) ? "0" + minutes : minutes;
-      seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+      var seconds = parseInt(timeDuration / 1000 % 60),
+        minutes = parseInt(timeDuration / (1000 * 60) % 60),
+        hours = parseInt(timeDuration / (1000 * 60 * 60) % 24),
+        days = parseInt(timeDuration / (1000 * 60 * 60 * 24));
+
+      days = days < 10 ? '0' + days : days;
+      hours = hours < 10 ? '0' + hours : hours;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
 
       const timeType = {
         'd': days,
@@ -56,7 +56,7 @@ Component({
       const rule = new RegExp('\{[d,h,m,s]\}', 'g'); // used to matched all template item, which includes 'd', 'h', 'm' and 's'.
       let matchlist = [];
       let tmp = null;
-      let { textStyle, timeWrapStyle } = this.props
+      let { textStyle, timeWrapStyle } = this.props;
 
       while ((tmp = rule.exec(tpl)) !== null) {
         matchlist.push(tmp.index, tmp.index);
@@ -75,7 +75,7 @@ Component({
           return {
             value: lastPlaintext,
             style: textStyle
-          } 
+          };
         }
 
         let matchedCharacter = tpl[val + 1];
@@ -90,7 +90,7 @@ Component({
               return {
                 value: tpl.slice(lastPlaintextIndex, val),
                 style: textStyle
-              } 
+              };
             } else {
               // replace current matched item to realtime string
               lastPlaintextIndex = val + 3;
@@ -98,14 +98,14 @@ Component({
                 value: this.splitTime(timeType[matchedCharacter]),
                 style: timeWrapStyle,
                 isTime: true
-              }
+              };
             }
           default:
             return null;
         }
       });
 
-      parsedTime = parsedTime.filter((item) => item)
+      parsedTime = parsedTime.filter((item) => item);
 
       // check if the onTick function needs to be called
       const callOnTick = this.props.onTick && typeof this.props.onTick === 'function';

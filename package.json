@@ -10,7 +10,7 @@
     "start": "rax-scripts start --type 'component' -p 8000",
     "prepublishOnly": "npm run build",
     "test": "npm run build && rax-scripts test",
-    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src"
+    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src --fix"
   },
   "files": [
     "dist",
