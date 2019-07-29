@@ -1,6 +1,6 @@
 {
   "name": "rax-countdown",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0",
   "description": "Countdown component for Rax.",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
@@ -33,10 +33,10 @@
     "npm": ">=3.0.0"
   },
   "dependencies": {
-    "rax-image": "^1.0.0-beta.1",
+    "rax-image": "^1.0.0",
     "rax-proptypes": "^1.0.0",
-    "rax-text": "^1.0.0-beta.1",
-    "rax-view": "^1.0.0-beta.0"
+    "rax-text": "^1.0.0",
+    "rax-view": "^1.0.0"
   },
   "peerDependencies": {
     "rax": "^1.0.0"
@@ -55,7 +55,7 @@
     "rax": "^1.0.0",
     "rax-scripts": "1.2.1",
     "rax-test-renderer": "^1.0.0",
-    "driver-universal": "^1.0.0-beta.5"
+    "driver-universal": "^1.0.0"
   },
   "miniappConfig": {
     "main": "lib/miniapp/index"

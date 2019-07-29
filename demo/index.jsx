@@ -23,8 +23,8 @@ class App extends Component {
             timeStyle={{
               'color': '#007457',
               'backgroundColor': 'red',
-              'marginLeft': '2rem',
-              'marginRight': '2rem'
+              'marginLeft': '2rpx',
+              'marginRight': '2rpx'
             }}
             secondStyle={{'backgroundColor': 'yellow'}}
             textStyle={{'backgroundColor': 'blue'}}
