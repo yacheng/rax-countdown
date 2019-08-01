@@ -40,7 +40,7 @@ $ npm install rax-countdown --save
 ```js
 import { createElement, render, Component } from 'rax';
 import View from 'rax-view';
-import Countdown from '../src/index';
+import Countdown from 'rax-countdown';
 import DU from 'driver-universal';
 
 class App extends Component {
