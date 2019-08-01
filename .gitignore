@@ -9,3 +9,5 @@ node_modules/
 build/
 dist/
 lib/
+_miniapp
+node_modules
