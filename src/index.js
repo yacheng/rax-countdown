@@ -1,9 +1,9 @@
-import {createElement, Component} from 'rax';
+import { createElement, Component } from 'rax';
 import PropTypes from 'rax-proptypes';
 import Text from 'rax-text';
 import View from 'rax-view';
 import Image from 'rax-image';
-import styles from './index.css';
+import './index.css';
 
 function isFunction(functionToCheck) {
   return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
@@ -13,10 +13,10 @@ function addZero(num, timeWrapStyle, timeBackground, timeBackgroundStyle, timeSt
   const displayNum = num < 0 ? 0 : num;
   const displayFirstNum = displayNum < 10 ? 0 : displayNum.toString().slice(0, 1);
   const displaySecondNum = displayNum < 10 ? displayNum : displayNum.toString().slice(1);
-  return <View className="item" style={{...styles.item, ...timeWrapStyle}}>
+  return <View className="item" style={{ ...timeWrapStyle }}>
     {
       timeBackground ?
-        <Image className="background" source={timeBackground} style={{...styles.background, ...timeBackgroundStyle}} /> :
+        <Image className="background" source={timeBackground} style={{ ...timeBackgroundStyle }} /> :
         null
     }
     <Text style={timeStyle}>
@@ -57,7 +57,7 @@ class Index extends Component {
   };
 
   componentWillMount() {
-    const {timeRemaining} = this.props;
+    const { timeRemaining } = this.props;
     this.setState({
       timeRemaining: timeRemaining
     });
@@ -94,8 +94,8 @@ class Index extends Component {
   }
 
   tick = () => {
-    const {onComplete, onTick, interval} = this.props;
-    const {timeRemaining} = this.state;
+    const { onComplete, onTick, interval } = this.props;
+    const { timeRemaining } = this.state;
     const countdownComplete = 1000 > timeRemaining;
 
     if (this.timeoutId) {
@@ -117,7 +117,7 @@ class Index extends Component {
   };
 
   render() {
-    const {timeRemaining} = this.state;
+    const { timeRemaining } = this.state;
     const {
       formatFunc,
       timeStyle,
@@ -148,7 +148,7 @@ class Index extends Component {
     let rule = new RegExp('\{[d,h,m,s]\}', 'g'); // used to matched all template item, which includes 'd', 'h', 'm' and 's'.
     const matchlist = [];
     let tmp = null;
-    while ( (tmp = rule.exec(tpl)) !== null ) {
+    while ((tmp = rule.exec(tpl)) !== null) {
       matchlist.push(tmp.index, tmp.index);
     }
     if (matchlist.length !== 0) {// used to detect the last element
@@ -156,7 +156,7 @@ class Index extends Component {
     }
     let lastPlaintextIndex = 0;
 
-    return <View className="main" style={styles.main}>
+    return <View className="main" >
       {
         matchlist.map((val, index) => {
           if (val === -1) {// don't forget the potential plain text after last matched item
